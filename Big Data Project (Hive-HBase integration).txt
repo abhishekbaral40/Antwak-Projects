@@ -1,0 +1,22 @@
+1.How many Fraudulent transactions are present?
+Solution:83
+
+2.What would happen if you disable the HBase table?
+Solution: After disabling the table, we can still sense its existence through list and exists commands. We cannot scan it. It will give the following error.
+
+hbase(main)> scan '<table_name>'
+ROW         COLUMN + CELL
+ERROR: <table_name> is disabled.
+
+3.What would happen if you drop the Hive integration table?
+Solution: We cannot scan or list the table. It gets removed from the database 
+hbase(main):007:0> scan "<table_name>"
+ROW                      COLUMN+CELL                                                        
+
+ERROR: Unknown table <table_name>!
+
+
+4.What performance improvement did you observe when using the HBase table vs Hive table? (In terms of query response)
+
+Hive Table query: Time taken: 0.321 seconds, Fetched: 53293 row(s)
+HBase Query: 53293 row(s) in 48.7340 seconds
